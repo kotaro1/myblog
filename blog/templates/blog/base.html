@@ -47,12 +47,14 @@
                 <ul class="list-group">
                 <li class="list-group-item bg-secondary text-white mb-1">カテゴリ一覧</li>
                 {% for category in category_list %}
-                    <li class="list-group-item mb-1">{{ category }}</li>
+                    <li class="list-group-item mb-1"><a href="{% url 'blog:category' category.pk %}">{{ category }}</a></li>
                 {% endfor %}
                 </ul>
             </div>
         </div>
+        {% include 'blog/page.html' %}
     </div>
+
     <footer class="bg-secondary text-white text-center py-1">
         <p>Kotaro</p>
     </footer>

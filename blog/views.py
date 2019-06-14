@@ -1,11 +1,13 @@
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.views import generic
 
-from .models import Post
+from .models import Post,Category
 
 
 class IndexView(generic.ListView):
     model = Post
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Post.objects.order_by('-created_at')
@@ -16,3 +18,12 @@ class IndexView(generic.ListView):
             )
         return queryset
 
+
+class CategoryView(generic.ListView):
+    model = Post
+    paginate_by = 5
+
+    def get_queryset(self):
+        category = get_object_or_404(Category, pk=self.kwargs['pk'])
+        queryset = Post.objects.order_by('-created_at').filter(category=category)
+        return queryset
