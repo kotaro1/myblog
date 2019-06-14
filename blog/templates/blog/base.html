@@ -52,7 +52,12 @@
                 {% endblock %}
             </div>
             <div class="col-md-4">
-                カテゴリ一覧
+                <ul class="list-group">
+                <li class="list-group-item bg-secondary text-white mb-1">カテゴリ一覧</li>
+                {% for category in category_list %}
+                    <li class="list-group-item mb-1">{{ category }}</li>
+                {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
