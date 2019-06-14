@@ -1,8 +1,16 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>ブログです。</h1>
 {% for post in post_list %}
-    <h2>{{ post.title }}</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <h4 class="card-title bg-secondary text-white mb-4">{{ post.title }}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{ post.created_at }}</h6>
+    <p class="card-text">
+        {{ post.text | truncatechars:30}}
+    </p>
+    <a href="#!" class="card-link">続きを読む</a>
+  </div>
+</div>
 {% endfor %}
 {% endblock %}
