@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ブログ</title>
-</head>
-<body>
-<h2>ブログです。</h2>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>ブログです。</h1>
+{% for post in post_list %}
+    <h2>{{ post.title }}</h2>
+{% endfor %}
+{% endblock %}
